@@ -1,6 +1,7 @@
 package com.example.phonelistapp.ui.fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -29,11 +30,20 @@ class DetailPersonFragment : Fragment() {
         binding.textInputDetailPersonName.setText(sentPerson.person_name)
         binding.textInputDetailPersonPhoneNumber.setText(sentPerson.person_phone_number)
 
+        //Kullanıcının yeni bilgilerinin güncellenmesi
+        binding.buttonDetailUpdate.setOnClickListener{
+                update(sentPerson.person_id,
+                binding.textInputDetailPersonName.text.toString(),
+                binding.textInputDetailPersonPhoneNumber.text.toString())
+        }
 
 
 
 
         return binding.root
+    }
+    fun update(person_id:Int,person_name:String, person_phone_number:String){
+        Log.e("The person has been updated ", "$person_id-$person_name - $person_phone_number")
     }
 
 }
