@@ -4,15 +4,19 @@ import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+import com.example.phonelistapp.R
 import com.example.phonelistapp.data.entity.Persons
 import com.example.phonelistapp.databinding.CardDesignBinding
 import com.example.phonelistapp.databinding.FragmentMainPageBinding
 import com.example.phonelistapp.ui.fragment.MainPageFragmentDirections
+import com.example.phonelistapp.ui.viewmodel.MainPageViewModel
 import com.google.android.material.snackbar.Snackbar
 
-class PersonAdapter(var mContext :Context, var personList:List<Persons>)
+//MVVM de ViewModele erismek icin class olustururken viewModel istedik
+class PersonAdapter(var mContext :Context, var personList:List<Persons>, var viewModel: MainPageViewModel)
     //Inner Classi tanıması icin
     :RecyclerView.Adapter<PersonAdapter.CardDesignHolder>() {
 
@@ -23,7 +27,7 @@ class PersonAdapter(var mContext :Context, var personList:List<Persons>)
     //Binding yapıp CardDesgina ulasmamızı saglıyor , asagıda icini olduruyoruz
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardDesignHolder {
         //CardDesignXml icin Binding
-        val binding = CardDesignBinding.inflate(LayoutInflater.from(mContext),parent,false)
+        val binding:CardDesignBinding = DataBindingUtil.inflate(LayoutInflater.from(mContext),R.layout.card_design ,parent,false)
         return CardDesignHolder(binding)
 
     }
@@ -39,8 +43,8 @@ class PersonAdapter(var mContext :Context, var personList:List<Persons>)
         //Binding icin holder (OnCreateViewHolder)
         val h = holder.design
 
-        h.textViewPersonName.text = person.person_name
-        h.textViewPersonPhoneNumber.text = person.person_phone_number
+        h.personObject = person
+        
 
         h.cardViewRow.setOnClickListener {
             val transitionNav = MainPageFragmentDirections.mainToDetail(person=person)
@@ -48,15 +52,14 @@ class PersonAdapter(var mContext :Context, var personList:List<Persons>)
         }
         h.imageViewDelete.setOnClickListener{
             Snackbar.make(it,"Do you wanna delete ${person.person_name} ? ", Snackbar.LENGTH_SHORT)
-                .setAction("Yes") { delete(person.person_id) }
+                .setAction("Yes") {
+                    viewModel.delete(person.person_id)
+                }
                 .show()
 
 
         }
 
     }
-    fun delete( person_id:Int){
-        Log.e("The Person has been deleted : ",person_id.toString())
 
-    }
 }

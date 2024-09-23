@@ -1,55 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewRow"
+    <data>
+        <variable
+            name="personObject"
+            type="com.example.phonelistapp.data.entity.Persons" />
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:layout_margin="5dp"
-        app:cardCornerRadius="5dp">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewRow"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="90dp"
+            android:layout_margin="5dp"
+            app:cardCornerRadius="5dp">
 
-            <ImageView
-                android:id="@+id/imageViewDelete"
-                android:layout_width="23dp"
-                android:layout_height="24dp"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/delete_image" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/textViewPersonName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:text="TextView"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toTopOf="@+id/textViewPersonPhoneNumber"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.5"
-                app:layout_constraintVertical_chainStyle="spread" />
+                <ImageView
+                    android:id="@+id/imageViewDelete"
+                    android:layout_width="23dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/delete_image" />
 
-            <TextView
-                android:id="@+id/textViewPersonPhoneNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:text="TextView"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewPersonName"
-                app:layout_constraintVertical_bias="0.5" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
-</LinearLayout>
+                <TextView
+                    android:id="@+id/textViewPersonName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="@{personObject.person_name}"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/textViewPersonPhoneNumber"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.5"
+                    app:layout_constraintVertical_chainStyle="spread" />
+
+                <TextView
+                    android:id="@+id/textViewPersonPhoneNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="@{personObject.person_phone_number}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewPersonName"
+                    app:layout_constraintVertical_bias="0.5" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</layout>
