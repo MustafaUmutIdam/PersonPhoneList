@@ -1,6 +1,8 @@
 [versions]
 agp = "8.5.1"
 androidxNavigationSafeargsGradlePlugin = "2.7.7"
+firebaseBom = "33.5.1"
+firebaseFirestore = "25.1.1"
 hiltAndroid = "2.49"
 hiltAndroidCompiler = "2.49"
 hiltAndroidGradlePlugin = "2.49"
@@ -23,6 +25,8 @@ androidx-androidx-navigation-safeargs-gradle-plugin = { module = "androidx.navig
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 dagger-hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroidCompiler" }
 dagger-hilt-android-gradle-plugin = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "hiltAndroidGradlePlugin" }
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+firebase-firestore = { module = "com.google.firebase:firebase-firestore", version.ref = "firebaseFirestore" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }

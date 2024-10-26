@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "311883195750",
+    "project_id": "training-cadc0",
+    "storage_bucket": "training-cadc0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:311883195750:android:87e0933d23c93210fe14a7",
+        "android_client_info": {
+          "package_name": "com.example.phonelistapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwg26L16sRO7tooyX3sxYJ4q7tbsR2edU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -11,10 +11,8 @@ import javax.inject.Inject
 @HiltViewModel
 class DetailPersonViewModel @Inject constructor (var prep : PersonRepository): ViewModel()   {
 
-    fun update(person_id:Int,person_name:String, person_phone_number:String){
-        CoroutineScope(Dispatchers.Main).launch {
-            prep.update(person_id,person_name,person_phone_number)
-        }
+    fun update(person_id:String,person_name:String, person_phone_number:String){
+        prep.update(person_id,person_name,person_phone_number)
     }
 
 }

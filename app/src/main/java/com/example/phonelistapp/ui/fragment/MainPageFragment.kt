@@ -84,9 +84,6 @@ class MainPageFragment : Fragment() {
         Navigation.doTransition(it,R.id.mainToSave)
     }
 
-    override fun onResume() {
-        super.onResume()
-        viewModel.uploadPersons()
-    }
+
 
 }

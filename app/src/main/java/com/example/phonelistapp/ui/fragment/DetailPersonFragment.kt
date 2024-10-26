@@ -43,7 +43,7 @@ class DetailPersonFragment : Fragment() {
         viewModel = tempViewModel
     }
 
-    fun buttonUpdate(person_id:Int,person_name:String, person_phone_number:String){
+    fun buttonUpdate(person_id:String,person_name:String, person_phone_number:String){
         viewModel.update(person_id,person_name,person_phone_number)
     }
 

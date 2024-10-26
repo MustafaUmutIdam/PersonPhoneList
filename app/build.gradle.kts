@@ -5,6 +5,8 @@ plugins {
 
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
+
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -62,6 +64,9 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    implementation(libs.firebase.bom)
+    implementation(libs.firebase.firestore)
 }
 kapt {
     correctErrorTypes = true

@@ -18,19 +18,13 @@ class MainPageViewModel @Inject constructor (var prep : PersonRepository) : View
         uploadPersons()
     }
 
-    fun delete(person_id:Int){
-        CoroutineScope(Dispatchers.Main).launch {
-            prep.delete(person_id)
-            uploadPersons()
-        }
+    fun delete(person_id:String){
+        prep.delete(person_id)
+        uploadPersons()
     }
     fun uploadPersons(){
-        CoroutineScope(Dispatchers.Main).launch {
-            personList.value = prep.uploadPersons()
-        }
+        personList = prep.uploadPersons()
     }
     fun search(searchingPerson:String){
-        CoroutineScope(Dispatchers.Main).launch {
-        personList.value = prep.search(searchingPerson)
-    }}
+        personList = prep.search(searchingPerson)}
 }

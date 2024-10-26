@@ -1,20 +1,22 @@
 package com.example.phonelistapp.data.repo
 
+import androidx.lifecycle.MutableLiveData
 import com.example.phonelistapp.data.datasource.PersonDataSource
 import com.example.phonelistapp.data.entity.Persons
 
 class PersonRepository(var pds:PersonDataSource ) {
 
-    suspend fun uploadPersons() = pds.uploadPersons()
+     fun uploadPersons() : MutableLiveData<List<Persons>> = pds.uploadPersons()
 
-    suspend fun search(searchingPerson:String) : List<Persons> = pds.search(searchingPerson)
+     fun search(searchingPerson:String) : MutableLiveData<List<Persons>> = pds.search(searchingPerson)
 
-    suspend fun save(person_name:String, person_phone_number:String) = pds.save(person_name,person_phone_number)
+     fun save(person_name:String, person_phone_number:String) = pds.save(person_name,person_phone_number)
 
-    suspend fun update(person_id:Int,person_name:String, person_phone_number:String){
+     fun update(person_id:String,person_name:String, person_phone_number:String){
         pds.update(person_id,person_name,person_phone_number)
     }
-    suspend fun delete(person_id:Int){
+
+     fun delete(person_id:String){
         pds.delete(person_id)
     }
 }

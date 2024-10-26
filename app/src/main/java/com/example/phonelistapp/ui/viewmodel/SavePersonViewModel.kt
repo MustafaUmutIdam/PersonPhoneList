@@ -13,8 +13,7 @@ class SavePersonViewModel @Inject constructor (var prep : PersonRepository) : Vi
 
 
     fun save(person_name:String, person_phone_number:String){
-    CoroutineScope(Dispatchers.Main).launch{
         prep.save(person_name,person_phone_number)
     }
- }
+
 }

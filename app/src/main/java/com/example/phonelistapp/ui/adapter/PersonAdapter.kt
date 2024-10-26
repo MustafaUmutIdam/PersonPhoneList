@@ -54,7 +54,7 @@ class PersonAdapter(var mContext :Context, var personList:List<Persons>, var vie
         h.imageViewDelete.setOnClickListener{
             Snackbar.make(it,"Do you wanna delete ${person.person_name} ? ", Snackbar.LENGTH_SHORT)
                 .setAction("Yes") {
-                    viewModel.delete(person.person_id)
+                    viewModel.delete(person.person_id!!)
                 }
                 .show()
 

@@ -2,6 +2,9 @@ package com.example.phonelistapp.di
 
 import com.example.phonelistapp.data.datasource.PersonDataSource
 import com.example.phonelistapp.data.repo.PersonRepository
+import com.google.firebase.Firebase
+import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.firestore
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,8 +19,8 @@ import javax.inject.Singleton
 class AppModule {
     @Provides
     @Singleton
-    fun providePersonDataSource() : PersonDataSource{
-        return PersonDataSource()
+    fun providePersonDataSource(collectionPersons:CollectionReference) : PersonDataSource{
+        return PersonDataSource(collectionPersons)
     }
 
     @Provides
@@ -25,4 +28,11 @@ class AppModule {
     fun providePersonRepository(pds:PersonDataSource) : PersonRepository {
         return PersonRepository(pds)
     }
+
+    @Provides
+    @Singleton
+    fun provideCollectionReference() : CollectionReference{
+        return Firebase.firestore.collection("Persons")
+    }
+
 }
