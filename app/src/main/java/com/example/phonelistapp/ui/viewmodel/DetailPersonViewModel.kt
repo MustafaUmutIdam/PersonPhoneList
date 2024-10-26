@@ -2,12 +2,14 @@ package com.example.phonelistapp.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import com.example.phonelistapp.data.repo.PersonRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class DetailPersonViewModel : ViewModel()   {
-    var prep = PersonRepository()
+@HiltViewModel
+class DetailPersonViewModel @Inject constructor (var prep : PersonRepository): ViewModel()   {
 
     fun update(person_id:Int,person_name:String, person_phone_number:String){
         CoroutineScope(Dispatchers.Main).launch {

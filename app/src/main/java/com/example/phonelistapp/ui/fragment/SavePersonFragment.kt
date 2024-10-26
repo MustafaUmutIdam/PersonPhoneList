@@ -12,8 +12,9 @@ import androidx.lifecycle.ViewModel
 import com.example.phonelistapp.R
 import com.example.phonelistapp.databinding.FragmentSavePersonBinding
 import com.example.phonelistapp.ui.viewmodel.SavePersonViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class SavePersonFragment : Fragment() {
 
     private lateinit var binding: FragmentSavePersonBinding

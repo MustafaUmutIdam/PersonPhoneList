@@ -18,8 +18,10 @@ import com.example.phonelistapp.ui.adapter.PersonAdapter
 import com.example.phonelistapp.ui.viewmodel.DetailPersonViewModel
 import com.example.phonelistapp.ui.viewmodel.MainPageViewModel
 import com.example.phonelistapp.ui.viewmodel.SavePersonViewModel
+import com.example.phonelistapp.util.doTransition
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class MainPageFragment : Fragment() {
     private lateinit var binding: FragmentMainPageBinding
     private lateinit var viewModel: MainPageViewModel
@@ -79,7 +81,7 @@ class MainPageFragment : Fragment() {
 
     fun fabClick(it:View){
         //KısıKaydetmeButton'undan Kaydetme sayfasına gecis
-        Navigation.findNavController(it).navigate(R.id.mainToSave)
+        Navigation.doTransition(it,R.id.mainToSave)
     }
 
     override fun onResume() {

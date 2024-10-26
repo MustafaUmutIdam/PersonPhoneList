@@ -3,8 +3,7 @@ package com.example.phonelistapp.data.repo
 import com.example.phonelistapp.data.datasource.PersonDataSource
 import com.example.phonelistapp.data.entity.Persons
 
-class PersonRepository {
-    var pds = PersonDataSource()
+class PersonRepository(var pds:PersonDataSource ) {
 
     suspend fun uploadPersons() = pds.uploadPersons()
 

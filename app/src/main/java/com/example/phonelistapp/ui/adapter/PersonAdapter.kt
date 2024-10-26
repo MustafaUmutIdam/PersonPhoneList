@@ -13,6 +13,7 @@ import com.example.phonelistapp.databinding.CardDesignBinding
 import com.example.phonelistapp.databinding.FragmentMainPageBinding
 import com.example.phonelistapp.ui.fragment.MainPageFragmentDirections
 import com.example.phonelistapp.ui.viewmodel.MainPageViewModel
+import com.example.phonelistapp.util.doTransition
 import com.google.android.material.snackbar.Snackbar
 
 //MVVM de ViewModele erismek icin class olustururken viewModel istedik
@@ -48,7 +49,7 @@ class PersonAdapter(var mContext :Context, var personList:List<Persons>, var vie
 
         h.cardViewRow.setOnClickListener {
             val transitionNav = MainPageFragmentDirections.mainToDetail(person=person)
-            Navigation.findNavController(it).navigate(transitionNav)
+            Navigation.doTransition(it,transitionNav)
         }
         h.imageViewDelete.setOnClickListener{
             Snackbar.make(it,"Do you wanna delete ${person.person_name} ? ", Snackbar.LENGTH_SHORT)

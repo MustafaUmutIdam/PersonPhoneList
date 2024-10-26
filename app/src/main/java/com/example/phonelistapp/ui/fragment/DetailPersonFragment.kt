@@ -13,8 +13,9 @@ import com.example.phonelistapp.R
 import com.example.phonelistapp.databinding.FragmentDetailPersonBinding
 import com.example.phonelistapp.ui.viewmodel.DetailPersonViewModel
 import com.example.phonelistapp.ui.viewmodel.SavePersonViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class DetailPersonFragment : Fragment() {
     private lateinit var binding: FragmentDetailPersonBinding
     private lateinit var viewModel: DetailPersonViewModel
